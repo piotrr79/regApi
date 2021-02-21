@@ -11,11 +11,11 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpFoundation\Request;
 
- /**
-  * FileUploadService - storing uploaded file on disc in temp folder
-* @package  Register-microservice Api
-* @author   Piotr Rybinski
-  */
+/**
+ * FileUploadService - storing uploaded file on disc in temp folder
+ * @package  Register-microservice Api
+ * @author   Piotr Rybinski
+ */
 class FileUploadService
 {
 
@@ -64,7 +64,7 @@ class FileUploadService
 
     /**
      * sanitizeFileName - remove illegal characters from file name, makes filename url friendly
-     * @param $original_name
+     * @param $filename
      * @return string
      */
     private function sanitizeFileName($filename)

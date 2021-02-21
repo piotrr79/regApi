@@ -100,7 +100,7 @@ class RegisterController extends AbstractController
 
     /**
      * Create Message
-     * @param $file, $name, $email
+     * @param $file, $name, $email, $gamecenter
      * @return string
      */
     private function createMessage($name, $email, $s3File, $gamecenter): string
