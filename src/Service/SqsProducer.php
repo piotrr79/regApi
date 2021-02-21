@@ -33,7 +33,10 @@ class SqsProducer
     public function getSqsClient()
     {
         return new SqsClient([
-            'profile' => 'private',
+            'credentials' => [
+                'key'    => $_ENV['AWS_ACCESS_KEY_ID'],
+                'secret' => $_ENV['AWS_SECRET_ACCESS_KEY'],
+            ],
             'region' => $_ENV['AWS_REGION'],
             'version' => '2012-11-05'
         ]);

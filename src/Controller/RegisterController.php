@@ -58,7 +58,7 @@ class RegisterController extends AbstractController
      */
     public function addUser(Request $request): JsonResponse
     {
-        $this->logger->error('Env Vars: '. $_ENV['AWS_BUCKET']);
+        /** @ToDo - provide authorization. WSO2 or any other OAuth SaaS, or even simple OAuth local service (Symfony Bundle) */
 
         $data = $request->request->all();
         $name = $data['Name'];
@@ -71,6 +71,11 @@ class RegisterController extends AbstractController
         $uuid = Uuid::v4();
         $key_name = $uuid.'/'.$uploadedFile['name'];
         $awsFile = $this->bucketService->uploadMultipartFileToBucket($key_name, $uploadedFile['path'].'/'.$uploadedFile['name']);
+
+        /** @ToDo - Verify if $email exists in centralized system (where api send user request), with Api call to centralized system */
+        /** @ToDo - Verify if $email exists in SQS queue system where api send messages  */
+        /** @ToDo - If email already exist delete file from AWS and display message to user that email is in use */
+
         $awsUrl = 'https://'.$_ENV['AWS_BUCKET'].'.s3.'.$_ENV['AWS_REGION'].'amazonaws.com/'.$awsFile['key'];
         $message = $this->createMessage($name, $email, $awsUrl, $_ENV['GAME_CENTER']);
 
