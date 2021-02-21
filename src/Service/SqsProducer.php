@@ -10,7 +10,7 @@ use Aws\Exception\AwsException;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
 /**
- * SqsProducer - Amazon SDK integration for S3 SQS
+ * SqsProducer - Amazon SDK integration for SQS
  * @package  Register-microservice Api
  * @author   Piotr Rybinski
  */
