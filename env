@@ -1,0 +1,22 @@
+# This file defines all environment variables that the application needs.
+# DO NOT DEFINE PRODUCTION SECRETS IN THIS FILE.
+# Use ".env.local" for local overrides during development.
+# Use real environment variables when deploying to production.
+# https://symfony.com/doc/current/best_practices/configuration.html#infrastructure-related-configuration
+
+###> symfony/framework-bundle ###
+APP_ENV=dev
+APP_SECRET=6a3859efb7c4584e8ebbd942a6a1d3e9
+###< symfony/framework-bundle ###
+
+###> AWS SDK <###
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_ACCESS_KEY=
+AWS_REGION=
+AWS_BUCKET=
+SQS_QUEUE_URL=
+###> AWS SDK <###
+
+###> Game Center <###
+GAME_CENTER=
+###> Game Center <###
