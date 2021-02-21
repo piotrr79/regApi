@@ -6,8 +6,10 @@
 * Built-in Symfony server will be running under: `http://127.0.0.1:8000`
 * Api is available under http://127.0.0.1:8000/api/register
 * Postman payload, cUrl:
-```curl --location --request POST 'http://127.0.0.1:8000/api/register' \
+```
+curl --location --request POST 'http://127.0.0.1:8000/api/register' \
 --form 'filename=@"/path/file.png"' \
 --form 'Name="User Name"' \
---form 'Email="email@emmail.com"'```
+--form 'Email="email@emmail.com"'
+```
 
