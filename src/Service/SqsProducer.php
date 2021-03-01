@@ -7,6 +7,7 @@ use Psr\Log\LoggerInterface;
 // AWS Aws\Sdk
 use Aws\Sqs\SqsClient; 
 use Aws\Exception\AwsException;
+use Aws\Result as AwsResult;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
 /**
@@ -30,7 +31,7 @@ class SqsProducer
      * @param array $http
      * @return object
      */
-    public function getSqsClient()
+    public function getSqsClient(): SqsClient
     {
         return new SqsClient([
             'credentials' => [
@@ -46,9 +47,9 @@ class SqsProducer
      * Send messafge to SQS queue
      * @param $message
      * @throws /AwsException
-     * @return array
+     * @return AwsResult
      */
-    public function sendMessage($message)
+    public function sendMessage($message): AwsResult
     {
         
         $params = [
@@ -64,6 +65,7 @@ class SqsProducer
         ];
 
         try {
+            /**@ToDo - parse response obj more detailed */
             $response = $this->getSqsClient()->sendMessage($params);
         } catch (AwsException $exception) {
             $response = $exception->getMessage();

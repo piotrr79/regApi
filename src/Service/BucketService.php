@@ -32,7 +32,7 @@ class BucketService
      * @param array $http
      * @return object
      */
-    public function getS3Client($http = [])
+    public function getS3Client($http = []): S3MultiRegionClient
     {
         return new S3MultiRegionClient([
           'version'     => 'latest',
@@ -51,7 +51,7 @@ class BucketService
      * @throws /AwsException
      * @return array
      */
-    public function uploadMultipartFileToBucket($file_key, $source)
+    public function uploadMultipartFileToBucket($file_key, $source): array
     {
         
         // get S3 Client

@@ -41,13 +41,17 @@ class RegisterController extends AbstractController
      * RegisterController constructor.
      * @param LoggerInterface $logger
      */
-    public function __construct(LoggerInterface $logger)
+    public function __construct(LoggerInterface $logger, 
+                                RequestValidator $requestValidator, 
+                                BucketService $bucketService,
+                                FileUploadService $fileUploadService, 
+                                SqsProducer $sqsProducerService)
     {
         $this->logger = $logger;
-        $this->requestValidator = new RequestValidator($logger);
-        $this->bucketService = new BucketService($logger);
-        $this->fileUploadService = new FileUploadService($logger);
-        $this->sqsProducerService = new SqsProducer($logger);
+        $this->requestValidator = $requestValidator;
+        $this->bucketService = $bucketService;
+        $this->fileUploadService = $fileUploadService;
+        $this->sqsProducerService = $sqsProducerService;
     }
 
     /**

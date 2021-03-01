@@ -27,10 +27,10 @@ class FileUploadService
     /**
      * FilesRetrieveService constructor.
      */
-    public function __construct(LoggerInterface $logger)
+    public function __construct(LoggerInterface $logger, Filesystem $fileSystem)
     {
         $this->logger = $logger;
-        $this->fileSystem = new Filesystem();
+        $this->fileSystem = $fileSystem;
     }
 
     /**
@@ -38,7 +38,7 @@ class FileUploadService
      * @param $request
      * @return array
      */
-    public function moveFile(UploadedFile $file)
+    public function moveFile(UploadedFile $file): array
     {
         $name = $file->getClientOriginalName();
         $size = $file->getSize();
@@ -67,7 +67,7 @@ class FileUploadService
      * @param $filename
      * @return string
      */
-    private function sanitizeFileName($filename)
+    private function sanitizeFileName($filename): string
     {
         $rawname = pathinfo($filename, PATHINFO_FILENAME);
         $extension = pathinfo($filename, PATHINFO_EXTENSION);
